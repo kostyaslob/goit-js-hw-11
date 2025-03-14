@@ -17,8 +17,19 @@ form.addEventListener("submit", (event) => {
     if (query === "") {
         iziToast.show({
             title: "Caution",
-            message: "Not valid data",
+            titleColor: "#fff", 
+            titleSize: "16px",
+            titleLineHeight: "1.5",
+
+            message: `Not valid data`,
+            messageColor: "#fff",
+            messageSize: "16px",
+            messageLineHeight: "1.5",
+
             backgroundColor: "#ffa000",
+            iconUrl: cautionIcon,
+
+            progressBar: false,
             position: "topRight",
         });
         return;
@@ -32,10 +43,16 @@ form.addEventListener("submit", (event) => {
             renderGallery(images);
         })
         .catch(() => {
-            iziToast.show({
-                title: "Error",
+            iziToast.show({              
                 message: "Something went wrong. Please try again later.",
-                backgroundColor: "#ff0000",
+                messageColor: "#fafafb",
+                messageSize: "16px",
+                messageLineHeight: "20px",
+
+                backgroundColor: "#ef4040",
+                iconUrl: warningIcon,
+
+                progressBar: false,
                 position: "topRight",
             });
         })

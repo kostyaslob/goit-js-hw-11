@@ -12,6 +12,7 @@ const loader = document.querySelector(".loader");
 const lightbox = new SimpleLightbox(".gallery a", {
     captionsData: "alt",
     captionDelay: 250,
+    navText: ["<<",">>"], 
 });
 
 export function showLoader() {
@@ -28,17 +29,18 @@ export function clearGallery() {
 
 export function renderGallery(images) {
     if (images.length === 0) {
-            iziToast.show({
-            message: `Sorry, there are no images matching your search query. Please try again!`,
+        iziToast.show({
+            message: `Sorry, there are no images matching <br/> your search query. Please try again!`,            
             messageColor: "#fafafb",
             messageSize: "16px",
-            messageLineHeight: "1.5",
+            messageLineHeight: "20px",
 
             backgroundColor: "#ef4040",
             iconUrl: warningIcon,
 
             progressBar: false,
             position: "topRight",
+            
             });
         return;
     }
@@ -51,15 +53,30 @@ export function renderGallery(images) {
                     class="gallery-image"
                     src="${image.webformatURL}" 
                     alt="${image.tags}" 
-                    width="360" 
-                    height="200" 
+                    // width="360" 
+                    // height="200" 
                 />
             </a>
-            <div class="image-info">
-                <p>Likes: ${image.likes}</p>
-                <p>Views: ${image.views}</p>
-                <p>Comments: ${image.comments}</p>
-                <p>Downloads: ${image.downloads}</p>
+            <div class="image-info-wrapper">
+                <div class="image-info-container">
+                    <span class="image-info-container-type">Likes</span>
+                    <span class="image-info-container-value">${image.likes}</span>                
+                </div>
+
+                <div class="image-info-container">
+                    <span class="image-info-container-type">Views</span>
+                    <span class="image-info-container-value">${image.views}</span>                
+                </div>
+
+                <div class="image-info-container">
+                    <span class="image-info-container-type">Comments</span>
+                    <span class="image-info-container-value">${image.comments}</span>                
+                </div>
+
+                <div class="image-info-container">
+                    <span class="image-info-container-type">Downloads</span>
+                    <span class="image-info-container-value">${image.downloads}</span>                
+                </div>
             </div>
         </li>
     `
