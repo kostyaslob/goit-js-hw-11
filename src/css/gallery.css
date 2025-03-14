@@ -1,0 +1,37 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 0;
+
+}
+
+.gallery-item {
+    width: calc(33.333% - 24px);
+    background: white;
+    overflow: hidden;
+    text-align: center;
+
+    border: 1px solid #808080;
+}
+
+.gallery-link {
+    display: block;
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto;
+}
+
+.image-info {
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    justify-content: space-around;
+}
+
+.image-info p {
+    margin: 5px 0;
+}
